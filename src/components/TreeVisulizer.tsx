@@ -27,6 +27,13 @@ export const TreeVisulizer = (props: any) => {
 
     }, [props.searchPath]);
 
+    useEffect(() => {
+        const { nodes: newNodes, edges: newEdges } = jsonToFlow(props.data, 0, "$");
+        setNodes(newNodes);
+        setEdges(newEdges);
+    }, [props.data]);
+
+
     return (
         <div className="w-full h-[600px] bg-white rounded shadow mt-4">
             <ReactFlow

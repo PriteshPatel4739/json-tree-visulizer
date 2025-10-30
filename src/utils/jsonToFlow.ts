@@ -1,4 +1,3 @@
-import { Background, Position } from "reactflow";
 
 let counterId = 1
 
