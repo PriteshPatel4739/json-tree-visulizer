@@ -1,7 +1,10 @@
 import { useState } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type JsonData = Record<string, any> | any[];
+
 interface JsonInputProps {
-  onVisualize: (data: unknown) => void;
+  onVisualize: (data: JsonData) => void;
 }
 
 const SAMPLE_JSON = {

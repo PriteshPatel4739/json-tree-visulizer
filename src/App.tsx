@@ -4,8 +4,11 @@ import JsonInput from './components/JsonInput';
 import { TreeVisulizer } from './components/TreeVisulizer';
 import SearchBar from './components/SearchBar';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type JsonData = Record<string, any> | any[] | null;
+
 function App() {
-  const [jsonData, setJsonData] = useState<unknown>(null);
+  const [jsonData, setJsonData] = useState<JsonData>(null);
   const [searchPath, setSearchPath] = useState<string>('');
 
   return (
@@ -36,9 +39,8 @@ function App() {
         </header>
 
         {/* JSON Input */}
-        <JsonInput onVisualize={(data: unknown) => setJsonData(data)} />
+        <JsonInput onVisualize={(data) => setJsonData(data)} />
 
-        {/* Tree Visualization */}
         {jsonData && (
           <div className="w-full max-w-6xl mt-8 space-y-5 animate-fade-in">
             {/* Search Bar */}
